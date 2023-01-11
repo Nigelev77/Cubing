@@ -9,6 +9,14 @@ int main(int, char **)
         return -1;
 
     GLFWwindow *window = glfwCreateWindow(1920, 1080, "Cubing", NULL, NULL);
+    glfwMakeContextCurrent(window);
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "GLAD init failed"
+                  << "\n";
+        return -1;
+    }
 
     while (!glfwWindowShouldClose(window))
     {
