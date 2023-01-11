@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(Cubing VERSION 0.1.0)
 
-include_directories(libs/GLAD/include)
-include_directories(libs/GLFW/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/GLAD/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/GLFW/include)
+include_directories(${CMAKE_SOURCE_DIR}/libs/glm)
 
 find_package(OpenGL REQUIRED)
 add_subdirectory(libs/GLAD)
