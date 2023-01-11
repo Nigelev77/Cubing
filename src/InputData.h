@@ -1,14 +1,13 @@
 #pragma once
 #include "GLFW/glfw3.h"
 
-enum INPUT_STATE
+struct INPUT_STATE
 {
-    INPUT_PRESSED,
-    INPUT_HELD,
-    INPUT_RELEASED
+    bool isPressed;
+    bool isHeld;
 };
 
-struct INPUTS
+extern struct INPUTS
 {
-    INPUT_STATE c[GLFW_KEY_LAST];
+    INPUT_STATE keys[GLFW_KEY_LAST];
 };
