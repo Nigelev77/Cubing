@@ -1,7 +1,0 @@
-[
-{
-  "directory": "C:/dev/Cubing/build",
-  "command": "C:/msys64/mingw64/bin/c++.exe   -g -o CMakeFiles/Cubing.dir/main.cpp.obj -c C:/dev/Cubing/main.cpp",
-  "file": "C:/dev/Cubing/main.cpp"
-}
-]
