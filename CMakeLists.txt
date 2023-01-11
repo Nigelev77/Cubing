@@ -4,6 +4,8 @@ project(Cubing VERSION 0.1.0)
 include_directories(${CMAKE_SOURCE_DIR}/libs/GLAD/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/GLFW/include)
 include_directories(${CMAKE_SOURCE_DIR}/libs/glm)
+include_directories(${CMAKE_SOURCE_DIR}/src)
+include_directories(${CMAKE_SOURCE_DIR}/src)
 
 find_package(OpenGL REQUIRED)
 add_subdirectory(libs/GLAD)

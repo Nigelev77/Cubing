@@ -2,6 +2,9 @@
 #include "GLAD/glad.h"
 #include "GLFW/glfw3.h"
 
+#include "Updates.h"
+#include <chrono>
+
 int main(int, char **)
 {
 
@@ -18,9 +21,21 @@ int main(int, char **)
         return -1;
     }
 
+    auto last = std::chrono::steady_clock::now();
+
+    { // All Inits
+      // RenderInit(); not implemented yet
+    }
+
     while (!glfwWindowShouldClose(window))
     {
+        auto time = std::chrono::steady_clock::now();
+
+        double delta = (time - last).count();
+        // RenderUpdate(delta); not implemented yet
         glfwPollEvents();
         glfwSwapBuffers(window);
+
+        last = time;
     }
 }
