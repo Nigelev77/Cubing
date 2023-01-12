@@ -5,26 +5,26 @@
 #include "Updates.h"
 #include <chrono>
 
-int main(int, char **)
+int main(int, char**)
 {
 
     if (!glfwInit())
         return -1;
 
-    GLFWwindow *window = glfwCreateWindow(1920, 1080, "Cubing", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1920, 1080, "Cubing", NULL, NULL);
     glfwMakeContextCurrent(window);
 
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "GLAD init failed"
-                  << "\n";
+            << "\n";
         return -1;
     }
 
     auto last = std::chrono::steady_clock::now();
 
     { // All Inits
-      // RenderInit(); not implemented yet
+        RenderInit();
     }
 
     while (!glfwWindowShouldClose(window))
@@ -32,7 +32,7 @@ int main(int, char **)
         auto time = std::chrono::steady_clock::now();
 
         double delta = (time - last).count();
-        // RenderUpdate(delta); not implemented yet
+        RenderUpdate(delta);
         glfwPollEvents();
         glfwSwapBuffers(window);
 
