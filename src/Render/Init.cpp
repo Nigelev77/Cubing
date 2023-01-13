@@ -2,6 +2,7 @@
 #include "Updates.h"
 #include "ubiq.h"
 #include <iostream>
+#include "Toolbox/Shaders.h"
 
 GLuint g_fa;
 GLuint g_fao;
@@ -51,4 +52,12 @@ void RenderInit()
 
     g_vertexCount = ARRAYLENGTH(indices, int);
 
+
+
+
+
+    //ShaderInit
+    std::cout << "Initing Shaders" << "\n";
+    g_CubeShader = CreateShader("../src/Render/Shaders/cube.vert", "../src/Render/Shaders/cube.frag");
+    if (g_CubeShader.prog == UINT32_MAX) std::cout << "Shader creation failed" << "\n";
 }

@@ -1,0 +1,4 @@
+cmake_minimum_required(VERSION 3.0)
+file(GLOB toolbox_src "*.h" "*.cpp")
+add_library(toolbox ${toolbox_src})
+target_link_libraries(toolbox PUBLIC glad ${PROJECT_SOURCE_DIR}/libs/GLFW/lib/libglfw3.a)
