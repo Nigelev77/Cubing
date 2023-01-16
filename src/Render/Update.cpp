@@ -5,6 +5,7 @@
 #include "Toolbox/Shaders.h"
 #include "gtc/matrix_transform.hpp"
 
+
 static glm::vec3 s_camPos{ 0.0f, 1.0f, 2.0f };
 static glm::mat4 s_viewMat = glm::mat4(1.0f);
 static glm::mat4 s_projMat = glm::perspective(45.0f, 16.0f / 9.0f, 0.5f, 250.0f);

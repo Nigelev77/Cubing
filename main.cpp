@@ -25,6 +25,7 @@ int main(int, char**)
 
     { // All Inits
         RenderInit();
+        IOInit(window);
     }
 
     while (!glfwWindowShouldClose(window))

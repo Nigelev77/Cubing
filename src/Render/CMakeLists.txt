@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 find_package(OpenGL REQUIRED)
 file(GLOB render_src "*.h" "*.cpp")
+include_directories($(PROJECT_SOURCE_DIR)/src/IO)
 add_library(render ${render_src})
 target_link_libraries(render PUBLIC glad ${PROJECT_SOURCE_DIR}/libs/GLFW/lib/libglfw3.a)
