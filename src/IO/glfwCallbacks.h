@@ -1,5 +1,11 @@
 #pragma once
 
-#include "glfw3.h"
+#include "GLFW/glfw3.h"
+#include "InputData.h"
 
-void KeyCallback(GLFWwindow *window, int key, int action, int scancode, int mods);
+
+extern INPUTS g_inputs;
+
+
+void KeyCallback(GLFWwindow* window, int key, int action, int scancode, int mods);
+void WindowResizeCallback(GLFWwindow* window, int width, int height);

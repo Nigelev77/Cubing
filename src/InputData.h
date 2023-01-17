@@ -7,7 +7,7 @@ struct INPUT_STATE
     bool isHeld;
 };
 
-extern struct INPUTS
+struct INPUTS
 {
     INPUT_STATE keys[GLFW_KEY_LAST];
 };
