@@ -6,7 +6,9 @@
 
 INPUTS g_inputs{};
 
-void KeyCallback(GLFWwindow* window, int key, int action, int scancode, int mods)
+#include <iostream>
+
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (key == GLFW_KEY_ESCAPE)
     {
@@ -30,7 +32,8 @@ void KeyCallback(GLFWwindow* window, int key, int action, int scancode, int mods
         break;
     }
     }
-    //UpdateInputs(&g_inputs); NOTE: WHEN THIS IS IMPLEMENTED UNCOMMENT THIS
+    UpdateInputs(&g_inputs);
+    //NOTE: WHEN THIS IS IMPLEMENTED UNCOMMENT THIS
     return;
 }
 
