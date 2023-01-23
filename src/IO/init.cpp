@@ -12,4 +12,8 @@ void IOInit(void* window)
     g_windowData.window = win;
     glfwGetWindowSize(win, &g_windowData.w, &g_windowData.h);
     glfwSetKeyCallback(win, &KeyCallback);
+    glfwSetCursorPosCallback(win, &MouseCallback);
+
+
+    glfwSetInputMode(win, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 }

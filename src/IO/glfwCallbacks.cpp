@@ -5,6 +5,7 @@
 #include "IO_Game_interface.h"
 
 INPUTS g_inputs{};
+MOUSE_INPUTS g_mouse{};
 
 #include <iostream>
 
@@ -42,4 +43,16 @@ void WindowResizeCallback(GLFWwindow* window, int width, int height)
     g_windowData.w = width;
     g_windowData.h = height;
     glViewport(0, 0, g_windowData.w, g_windowData.h);
+}
+
+void MouseCallback(GLFWwindow* window, double x, double y)
+{
+    double lX = g_mouse.x, lY = g_mouse.y;
+
+    g_mouse.dx = (x - lX) * 0.01f;
+    g_mouse.dy = (y - lY) * 0.01f;
+    g_mouse.x = x;
+    g_mouse.y = y;
+    UpdateMouse(&g_mouse);
+    return;
 }

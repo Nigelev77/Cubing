@@ -8,11 +8,12 @@
  *
  */
 
-// Caller: Lawan, Implementer: Elijah
-/*
- * @param data : buffer of data for faces
- * @param dim : dim x dim face
- */
-int UpdateCubeData(void *data, int dim);
+ // Caller: Lawan, Implementer: Elijah
+ /*
+  * @param data : buffer of data for faces
+  * @param dim : dim x dim face
+  */
+int UpdateCubeData(void* data, int dim);
 
-void UpdateInputs(INPUTS *newInputs);
+void UpdateInputs(INPUTS* newInputs);
+void UpdateMouse(MOUSE_INPUTS* newMouse);

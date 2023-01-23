@@ -21,8 +21,8 @@ static float face[] =
 
 static unsigned int indices[] =
 {
-    0, 2, 1,
-    0, 3, 2
+    0, 1, 2,
+    0, 2, 3
 };
 
 double someFunc(int i, double j)
@@ -53,8 +53,10 @@ void RenderInit()
     g_vertexCount = ARRAYLENGTH(indices, int);
 
 
-
-
+    glEnable(GL_BLEND);
+    glEnable(GL_CULL_FACE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glCullFace(GL_BACK);
 
     //ShaderInit
     std::cout << "Initing Shaders" << "\n";

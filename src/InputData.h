@@ -11,3 +11,9 @@ struct INPUTS
 {
     INPUT_STATE keys[GLFW_KEY_LAST];
 };
+
+struct MOUSE_INPUTS
+{
+    double x, y;
+    double dx, dy;
+};

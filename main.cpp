@@ -32,7 +32,7 @@ int main(int, char**)
     {
         auto time = std::chrono::steady_clock::now();
 
-        double delta = (time - last).count();
+        double delta = std::chrono::duration_cast<std::chrono::milliseconds>(time - last).count();
         RenderUpdate(delta);
         glfwPollEvents();
         glfwSwapBuffers(window);
