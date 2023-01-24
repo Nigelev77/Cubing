@@ -4,10 +4,11 @@
 #include "init.h"
 #include "Toolbox/Shaders.h"
 #include "gtc/matrix_transform.hpp"
+#include <string>
 
 
 #include "CubeRender.h"
-
+#include "FontRender.h"
 static glm::vec3 s_camPos{ 0.0f, 0.0f, 0.0f };
 static glm::vec3 s_camRots{ -90.0f, 0.0f, 0.0f };
 static glm::vec3 s_camFront{ 0.0f, 0.0f, -1.0f };
@@ -84,7 +85,6 @@ void RenderUpdate(double delta)
 {
     glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    std::cout << delta << "\n";
     UpdateInputs(&g_inputs);
 
     LoadShader(g_CubeShader.prog);
@@ -106,11 +106,20 @@ void RenderUpdate(double delta)
 
     // glBindVertexArray(g_fao);
     // glDrawElements(GL_TRIANGLES, g_vertexCount, GL_UNSIGNED_INT, 0);
-    glBindVertexArray(g_fao);
+
     CalculateAndRender(s_projMat, s_viewMat);
-    SetUniMat4f(u_MVP, g_CubeShader.prog, "u_MVP");
-    glBegin(GL_POINTS);
-    glVertex3f(0.0f, 0.0f, 0.0f);
-    glEnd();
+    // SetUniMat4f(u_MVP, g_CubeShader.prog, "u_MVP");
+    // glBegin(GL_POINTS);
+    // glVertex3f(0.0f, 0.0f, 0.0f);
+    // glEnd();
+
+    double fps = 1000.0 / delta;
+    std::string fpsStr = "fps: " + std::to_string(fps);
+    std::string deltaStr = "frame time: " + std::to_string(delta);
+    FontRender(fpsStr, 0.0f, 500.0f, 1.0f);
+    FontRender(deltaStr, 0.0f, 550.0f, 1.0f);
+    FontRender("this is some text", 0.0f, 100.0f, 1.0f);
+    //TODO: BUFFER VERTICES ONLY ONCE AND USE A MATRIX TO TRANSFORM THE QUADS TO RENDER
+    //TODO: PERHAPS LOOK INTO SIGNED DISTANCE FIELDS
 
 }

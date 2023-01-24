@@ -28,7 +28,7 @@ void CalculateAndRender(glm::mat4& u_proj, glm::mat4& u_view)
     // cubeRotation = glm::rotate(cubeRotation, glm::radians(s_orientation.z), Z_AXIS);
 
     LoadShader(g_CubeShader.prog);
-    glEnable(GL_DEPTH_TEST);
+    glBindVertexArray(g_fao);
     float dim = (float)g_dim;
     float midDist = dim;
 

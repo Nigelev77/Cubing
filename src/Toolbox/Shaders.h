@@ -10,6 +10,7 @@ struct Shader
 };
 
 extern Shader g_CubeShader;
+extern Shader g_fontShader;
 
 
 /// @brief 

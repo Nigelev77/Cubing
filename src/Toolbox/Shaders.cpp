@@ -5,6 +5,7 @@
 #include <iostream>
 
 Shader g_CubeShader{};
+Shader g_fontShader{};
 
 
 GLint CompileShader(GLuint shader)
@@ -37,7 +38,6 @@ Shader CreateShader(std::string_view vPath, std::string_view fPath)
         std::stringstream ss;
         ss << file.rdbuf();
         const std::string src = ss.str();
-        std::cout << "Content of vert is " << src << "\n";
         const char* c_src = src.c_str();
         glShaderSource(vert, 1, &c_src, NULL);
         int stat = CompileShader(vert);
@@ -51,7 +51,6 @@ Shader CreateShader(std::string_view vPath, std::string_view fPath)
         std::stringstream ss;
         ss << file.rdbuf();
         const std::string src = ss.str();
-        std::cout << "Contents of frag is " << src << "\n";
         const char* c_src = src.c_str();
         glShaderSource(frag, 1, &c_src, NULL);
         int stat = CompileShader(frag);

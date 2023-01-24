@@ -3,6 +3,7 @@
 #include "ubiq.h"
 #include <iostream>
 #include "Toolbox/Shaders.h"
+#include "FontInit.h"
 
 GLuint g_fa;
 GLuint g_fao;
@@ -54,12 +55,19 @@ void RenderInit()
 
 
     glEnable(GL_BLEND);
-    glEnable(GL_CULL_FACE);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
+    glEnable(GL_DEPTH_TEST);
 
     //ShaderInit
     std::cout << "Initing Shaders" << "\n";
     g_CubeShader = CreateShader("../src/Render/Shaders/cube.vert", "../src/Render/Shaders/cube.frag");
     if (g_CubeShader.prog == UINT32_MAX) std::cout << "Shader creation failed" << "\n";
+
+    g_fontShader = CreateShader("../src/Render/Shaders/font.vert", "../src/Render/Shaders/font.frag");
+    if (g_fontShader.prog == UINT32_MAX) std::cout << "Shader creation failed\n";
+
+    FontInit();
+
 }
