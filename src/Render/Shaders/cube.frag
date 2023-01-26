@@ -9,5 +9,5 @@ uniform float u_red;
 
 void main(void)
 {
-    outColor=vec4(u_red, u_red, u_red, 1.0);
+    outColor=vec4(u_colour, u_colour, u_colour, 1.0);
 }

@@ -12,8 +12,11 @@ void ChangeDimensionality(int n)
 }
 
 #include <vector>
+
+#include "glm/gtc/quaternion.hpp"
+#include "glm/gtx/quaternion.hpp"
 static std::vector<std::vector<char>> s_colours{};
-static glm::vec3 s_orientation{ 0.0f, 0.0f, 0.0f };
+glm::quat cubeOrientation({ 0.0f, 0.0f, 0.0f });
 const static glm::vec3 X_AXIS{ 1.0f, 0.0f, 0.0f };
 const static glm::vec3 Y_AXIS{ 0.0f, 1.0f, 0.0f };
 const static glm::vec3 Z_AXIS{ 0.0f, 0.0f, 1.0f };
@@ -22,11 +25,9 @@ const static glm::vec3 ZERO_VEC{ 0.0f, 0.0f, 0.0f };
 
 void CalculateAndRender(glm::mat4& u_proj, glm::mat4& u_view)
 {
-    glm::mat4 cubeRotation{ 1.0f };
-    // cubeRotation = glm::rotate(cubeRotation, glm::radians(s_orientation.x), X_AXIS);
-    // cubeRotation = glm::rotate(cubeRotation, glm::radians(s_orientation.y), Y_AXIS);
-    // cubeRotation = glm::rotate(cubeRotation, glm::radians(s_orientation.z), Z_AXIS);
+    glm::mat4 cubeTransform;
 
+    cubeTransform = glm::mat4_cast(cubeOrientation);
     LoadShader(g_CubeShader.prog);
     glBindVertexArray(g_fao);
     float dim = (float)g_dim;
@@ -79,7 +80,7 @@ void CalculateAndRender(glm::mat4& u_proj, glm::mat4& u_view)
             // NOTE: I BELIEVE THIS IS CORRECT BUT THE REASON FOR SLOWDOWN IS JUST BECAUSE MORE THIGNS RENDERED
             // AND NOT HAVING FIXED TIME THING
 
-            u_MVP = u_proj * u_view * u_model;
+            u_MVP = u_proj * u_view * cubeTransform * u_model;
 
 
             SetUniMat4f(u_MVP, g_CubeShader.prog, "u_MVP");

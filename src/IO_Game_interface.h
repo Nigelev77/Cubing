@@ -17,3 +17,4 @@ int UpdateCubeData(void* data, int dim);
 
 void UpdateInputs(INPUTS* newInputs);
 void UpdateMouse(MOUSE_INPUTS* newMouse);
+void UpdateMouseButton(MOUSE_INPUTS* newMouse);

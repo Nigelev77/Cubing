@@ -16,4 +16,6 @@ struct MOUSE_INPUTS
 {
     double x, y;
     double dx, dy;
+
+    INPUT_STATE buttons[GLFW_MOUSE_BUTTON_LAST];
 };

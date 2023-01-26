@@ -56,3 +56,25 @@ void MouseCallback(GLFWwindow* window, double x, double y)
     UpdateMouse(&g_mouse);
     return;
 }
+
+void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+{
+    INPUT_STATE& b = g_mouse.buttons[button];
+    switch (action)
+    {
+    case GLFW_PRESS:
+    {
+        b.isHeld = true;
+        b.isPressed = true;
+        break;
+    }
+    case GLFW_RELEASE:
+    {
+        b.isHeld = false;
+        b.isPressed = false;
+        break;
+    }
+    }
+    UpdateMouseButton(&g_mouse);
+    return;
+}
